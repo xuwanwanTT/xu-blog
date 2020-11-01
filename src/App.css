@@ -27,3 +27,21 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+header {
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: #66757f;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+footer > a  {
+  color: #000;
+  font-weight: bold;
+}
