@@ -2,17 +2,21 @@
   width: 960px;
   margin: 0 auto;
 }
-.article-list-warp .list-ul {
+.article-list-warp .list-tag-wrap {
   width: 100%;
+  display: flex;
 }
-.article-list-warp .list-ul .list-li {
+.article-list-warp .list-tag-wrap .list-ul {
+  flex: 3;
+}
+.article-list-warp .list-tag-wrap .list-ul .list-li {
   position: relative;
   width: 100%;
   margin: 0 0 15px;
   padding: 15px 2px 20px 0;
   border-bottom: 1px solid #f0f0f0;
 }
-.article-list-warp .list-ul .list-li .title {
+.article-list-warp .list-tag-wrap .list-ul .list-li .title {
   margin: -7px 0 4px;
   font-size: 18px;
   font-weight: 700;
@@ -20,9 +24,27 @@
   font-size: #333;
   cursor: pointer;
 }
-.article-list-warp .list-ul .list-li .content {
+.article-list-warp .list-tag-wrap .list-ul .list-li .content {
   margin: 0 0 8px;
   font-size: 13px;
   line-height: 24px;
   color: #999;
+}
+.article-list-warp .list-tag-wrap .tag-ul {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.article-list-warp .list-tag-wrap .tag-ul .tag-li {
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: 1px dashed transparent;
+}
+.article-list-warp .list-tag-wrap .tag-ul .tag-li:hover,
+.article-list-warp .list-tag-wrap .tag-ul .tag-li.active {
+  border: 1px dashed;
 }

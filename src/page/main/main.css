@@ -1,0 +1,22 @@
+.xu-blog-main {
+  width: 100%;
+}
+.xu-blog-main .xu-blog-tab {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.xu-blog-main .xu-blog-tab .tab-item {
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0 10px;
+}
+.xu-blog-main .xu-blog-tab .tab-item.active,
+.xu-blog-main .xu-blog-tab .tab-item:hover {
+  border: 1px solid;
+}
