@@ -5,13 +5,19 @@ export default ({ type }) => {
   const [data, setData] = useState([]);
   const [tag, setTag] = useState([]);
 
+  const changeTag = (data, index) => {
+    const temp = JSON.parse(JSON.stringify(tag));
+    temp[index].value = !temp[index].value;
+    setTag(temp);
+  };
+
   useEffect(() => {
     console.log(type);
 
     setData([
       {
         title: '测试标题1', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容',
-        url: '/article/1', update_date: ''
+        url: '/article/1', update_date: '2020-11-03 18:00', watched: '1', comment: '2', nice: 9999
       },
       { title: '测试标题2', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容' },
       { title: '测试标题3', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容' },
@@ -39,7 +45,12 @@ export default ({ type }) => {
             <div className={'list-li'} key={'list' + i}>
               <a className={'title'} target={'_blank'} rel={'noopener noreferrer'} href={s.url}>{s.title}</a>
               <div className={'content'}>{s.content}</div>
-              <div className={'meta'}></div>
+              <div className={'meta'}>
+                <span>浏览量 {s.watched}</span>
+                <span>评论 {s.comment}</span>
+                <span>赞 {+s.nice > 1000 ? '999+' : s.nice}</span>
+                <span>{s.update_date}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -47,6 +58,7 @@ export default ({ type }) => {
         <div className={'tag-ul'}>
           {tag.map((s, i) => (
             <div key={'tag' + i}
+              onClick={() => { changeTag(s, i) }}
               className={`tag-li ${s.value ? 'active' : ''}`}>{s.name}</div>
           ))}
         </div>
