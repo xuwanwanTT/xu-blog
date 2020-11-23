@@ -21,7 +21,7 @@ function App() {
 
       <div className={'footer'}>
 
-        <footer>Copyright © 2018 - 2020 <a href="#/">xuwanwan</a>. All rights reserved.</footer>
+        <footer>Copyright © 2018 - {new Date().getFullYear()} <a href="#/">xuwanwan</a>. All rights reserved.</footer>
 
       </div>
 
