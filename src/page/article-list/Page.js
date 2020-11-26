@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './page.css';
+import axios from 'axios';
 
 export default ({ type }) => {
   const [data, setData] = useState([]);
@@ -12,35 +13,19 @@ export default ({ type }) => {
   };
 
   useEffect(() => {
-    console.log(type);
+    axios.get('/static/article/data.json').then(res => {
+      let data = res.data.data.filter(s => s.type === type);
+      setData(data);
+    });
 
-    setData([
-      {
-        title: '测试标题1', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容',
-        url: '/article/1', update_date: '2020-11-03 18:00', watched: '1', comment: '2', nice: 9999
-      },
-      {
-        title: '测试标题2', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容',
-        url: '/article/1', update_date: '2020-11-03 18:00', watched: '1', comment: '2', nice: 9999
-      },
-      {
-        title: '测试标题3', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容',
-        url: '/article/1', update_date: '2020-11-03 18:00', watched: '1', comment: '2', nice: 9999
-      },
-      {
-        title: '测试标题4', content: '测试内容测试内容测试内容，测试内容测试内容测试内容，测试内容测试内容测试内容测试内容',
-        url: '/article/1', update_date: '2020-11-03 18:00', watched: '1', comment: '2', nice: 9999
-      },
-    ]);
-
-    setTag([
-      { name: 'tag1', value: 1 },
-      { name: 'tag2', value: 1 },
-      { name: 'tag3', value: 1 },
-      { name: 'tag4', value: 1 },
-      { name: 'tag5', value: 1 },
-      { name: 'tag6', value: 1 },
-    ]);
+    // setTag([
+    //   { name: 'tag1', value: 1 },
+    //   { name: 'tag2', value: 1 },
+    //   { name: 'tag3', value: 1 },
+    //   { name: 'tag4', value: 1 },
+    //   { name: 'tag5', value: 1 },
+    //   { name: 'tag6', value: 1 },
+    // ]);
 
   }, [type]);
 
@@ -52,7 +37,7 @@ export default ({ type }) => {
         <div className={'list-ul'}>
           {data.map((s, i) => (
             <div className={'list-li'} key={'list' + i}>
-              <a className={'title'} target={'_blank'} rel={'noopener noreferrer'} href={s.url}>{s.title}</a>
+              <a className={'title'} target={'_blank'} rel={'noopener noreferrer'} href={window.baseURL + s.url}>{s.title}</a>
               <div className={'content'}>{s.content}</div>
               <div className={'meta'}>
                 <span>浏览量 {s.watched}</span>

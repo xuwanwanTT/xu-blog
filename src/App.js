@@ -9,7 +9,7 @@ function App() {
 
       <div className={'header'}>
 
-        <header>xuwanwan.com</header>
+        <header><a href={'https://www.xuwanwan.com'}>xuwanwan.com</a></header>
 
       </div>
 
